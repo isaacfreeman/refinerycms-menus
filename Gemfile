@@ -2,8 +2,8 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', '~> 2.0.9'
-gem 'refinerycms-i18n', '~> 2.0.2'
+gem 'refinerycms', '~> 3.0.0.dev'
+gem 'refinerycms-i18n', '~> 3.0.0.dev'
 gem 'rails', '3.2.13'
 
 # Database Configuration
@@ -33,7 +33,7 @@ group :development, :test do
 
   gem 'capybara-webkit'
   gem 'launchy'
-  gem 'refinerycms-testing', '~> 2.0.3'
+  gem 'refinerycms-testing', '~> 3.0.0.dev'
   gem 'rspec-rails'
 
   platforms :mswin, :mingw do
