@@ -15,6 +15,7 @@ def setup_environment
   end
 
   require 'rspec/rails'
+  require 'capybara/rails'
   require 'capybara/rspec'
 
   Rails.backtrace_cleaner.remove_silencers!
@@ -26,6 +27,7 @@ def setup_environment
     config.treat_symbols_as_metadata_keys_with_true_values = true
     config.filter_run :focus => true
     config.run_all_when_everything_filtered = true
+    config.include Capybara::DSL
   end
 end
 

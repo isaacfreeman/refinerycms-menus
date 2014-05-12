@@ -108,7 +108,9 @@ module Refinery
                 page.should have_content(link_1.label)
 
                 within "#menu_link_#{link_1.id}" do
-                  click_link "remove"
+                  find(".header").click
+                  find(".body").should be_visible
+                  find(".body").click_link("remove")
                 end
 
                 page.should_not have_content(link_1.label)

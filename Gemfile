@@ -2,9 +2,16 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', '~> 3.0.0.dev'
-gem 'refinerycms-i18n', '~> 3.0.0.dev'
-gem 'rails', '3.2.13'
+git 'git://github.com/refinery/refinerycms.git', :branch => 'master' do
+  gem 'refinerycms'
+  gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
+
+  group :development, :test do
+    gem 'refinerycms-testing'
+  end
+end
+
+gem 'rails', '= 4.1.1'
 
 # Database Configuration
 platforms :jruby do
@@ -31,9 +38,9 @@ group :development, :test do
     gem 'guard-rspec'
   end
 
+  gem 'capybara'
   gem 'capybara-webkit'
   gem 'launchy'
-  gem 'refinerycms-testing', '~> 3.0.0.dev'
   gem 'rspec-rails'
 
   platforms :mswin, :mingw do

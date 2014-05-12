@@ -12,13 +12,9 @@ if File.exists?(APP_RAKEFILE)
   load 'rails/tasks/engine.rake'
 end
 
-Bundler::GemHelper.install_tasks
-
 Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
 
 require "refinerycms-testing"
-Refinery::Testing::Railtie.load_tasks
 Refinery::Testing::Railtie.load_dummy_tasks(ENGINE_PATH)
 
 task :default => :spec
-

@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
 
   # Runtime dependencies
   s.add_dependency    'refinerycms-core',    '~> 3.0.0.dev'
-  s.add_dependency    'awesome_nested_set', '~> 3.0.0.rc.4'
+  s.add_dependency    'awesome_nested_set', '~> 3.0.0.rc.5'
 
   # Development dependencies (usually used for testing)
-  s.add_development_dependency 'refinerycms-testing', '~> 2.0.6'
+  s.add_development_dependency 'refinerycms-testing'
 
 
 end

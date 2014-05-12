@@ -16,13 +16,11 @@ module Refinery
   module Menus
     class LinkResource < ActiveRecord::Base
       self.table_name = :support_resource
-      attr_accessible  :title, :draft
       scope :live, where(draft: false)
     end
 
     class AnotherLinkResource < ActiveRecord::Base
       self.table_name = :support_another_resource
-      attr_accessible  :title, :draft
     end
   end
 end
@@ -91,14 +89,14 @@ module Refinery
 
         it "should apply scope from symbol if present" do
           Refinery::Menus::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(:scope => :live)
-          
+
           Refinery::Menus::MenuLink.find_all_of_type(:refinery_resource).should_not include(@resource_draft)
           Refinery::Menus::MenuLink.find_all_of_type(:refinery_resource).should include(@resource_puplished)
         end
 
         it "should apply scope from a block if present" do
           Refinery::Menus::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(scope: Proc.new { where(draft: false) })
-          
+
           Refinery::Menus::MenuLink.find_all_of_type(:refinery_resource).should_not include(@resource_draft)
           Refinery::Menus::MenuLink.find_all_of_type(:refinery_resource).should include(@resource_puplished)
         end

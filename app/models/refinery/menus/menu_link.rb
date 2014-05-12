@@ -2,9 +2,6 @@ module Refinery
   module Menus
     class MenuLink < Refinery::Core::BaseModel
       self.table_name = "refinery_menus_links"
-      
-      attr_accessible :parent_id, :refinery_page_id, :refinery_menu_id, :resource, :resource_id, :resource_type,
-                      :title_attribute, :custom_url, :label, :menu, :id_attribute, :class_attribute
 
       belongs_to :menu, :class_name => '::Refinery::Menus::Menu', :foreign_key => :refinery_menu_id
       belongs_to :resource, :polymorphic => true
@@ -17,6 +14,8 @@ module Refinery
       validates :label, :presence => true
 
       before_validation :set_label
+
+      default_scope { order('lft ASC') }
 
       def self.find_all_of_type(type)
         # find all resources of the given type, determined by the configuration

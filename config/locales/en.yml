@@ -18,7 +18,7 @@ en:
             no_links: Use the left side to add links to your menu.
           records:
             title: Menus
-            no_items_yet: There are no menues yet. Ask your developer to create one for you.
+            no_items_yet: There are no menus yet. Ask your developer to create one for you.
           menu:
             edit: Edit this menu
             delete: Remove this menu forever
