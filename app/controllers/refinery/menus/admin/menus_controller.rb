@@ -15,7 +15,7 @@ module Refinery
         private
 
         def menu_params
-          params.require(:menu).permit(:title, :permatitle, :links, :links_attributes)
+          params.require(:menu).permit(:id, :title, :permatitle, :links, links_attributes: [:id, :_destroy, :parent_id, :refinery_page_id, :refinery_menu_id, :resource, :resource_id, :resource_type, :title_attribute, :custom_url, :label, :menu, :id_attribute, :class_attribute])
         end
 
         # Based upon http://github.com/matenia/jQuery-Awesome-Nested-Set-Drag-and-Drop
